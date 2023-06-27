@@ -40,19 +40,25 @@ luci-app-docker                 # docker-ce
 luci-app-dockerman              # Docker Manager
 luci-app-e2guardian             # Web内容过滤器
 luci-app-eqos                   # 根据IP控制网速
+luci-app-easymesh               # mesh 组网
 luci-app-guest-wifi             # WiFi访客网络
 luci-app-hd-idle                # 硬盘休眠
 luci-app-mwan3                  # MWAN3分流助手
 luci-app-mwan3helper            # MWAN3 Helpe
+luci-app-mail                   # 邮件设置
+luci-app-netspeedtest           # 网速测试
 luci-app-oaf                    # 应用过滤神器
 luci-app-openclash              # 你懂的那只猫
 luci-app-omcproxy               # 组播代理，用于iptv
+luci-app-pushbot                #
 luci-app-pppoe-relay            # PPPoE NAT穿透 点对点协议(PPP) ???
 luci-app-qos                    # 流量服务质量(QoS)流控
 luci-app-ramfree                # 释放内存
 luci-app-rp-pppoe-server        # Roaring Penguin PPPoE Server 服务器 ???
 luci-app-statistics             # 流量监控工具
 luci-app-socat                  # 端口转发
+luci-app-serverchan             # 企业微信推送通知
+luci-app-smartdns               # dns
 luci-app-udpxy                  # udpxy 做组播服务器
 luci-app-uhttpd                 # uHTTPd Web服务器
 luci-app-vnstat                 # vnStat网络监控(图表)
