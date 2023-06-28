@@ -31,6 +31,7 @@ luci-app-zerotier               # 虚拟局域网
 
 * 手动开启
 ```
+luci-app-acme                   # 证书申请
 luci-app-advanced-reboot        # 高级重启
 luci-app-aliyundrive-webdav     # aliyundrive-webdav
 luci-app-aliddns                # 阿里DDNS客户端
