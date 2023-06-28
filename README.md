@@ -34,7 +34,7 @@ luci-app-zerotier               # 虚拟局域网
 luci-app-advanced-reboot        # 高级重启
 luci-app-aliyundrive-webdav     # aliyundrive-webdav
 luci-app-aliddns                # 阿里DDNS客户端
-luci-app-argone-config          # Argon主题设置
+luci-app-argon-config           # Argon主题设置
 luci-app-adguardhome            # 广告过滤
 luci-app-docker                 # docker-ce
 luci-app-dockerman              # Docker Manager
@@ -46,7 +46,6 @@ luci-app-hd-idle                # 硬盘休眠
 luci-app-mwan3                  # MWAN3分流助手
 luci-app-mwan3helper            # MWAN3 Helpe
 luci-app-mail                   # 邮件设置
-luci-app-netspeedtest           # 网速测试
 luci-app-oaf                    # 应用过滤神器
 luci-app-openclash              # 你懂的那只猫
 luci-app-omcproxy               # 组播代理，用于iptv
