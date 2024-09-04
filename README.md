@@ -85,7 +85,7 @@ make menuconfig
 
 #### 基于 docker 运行
 ```
-docker run -d --privileged --cap-add=NET_ADMIN --network host gaozhenhai/dros:v1
+docker run -d --privileged --cap-add=NET_ADMIN --network host gaozhenhai/dros:v2 /sbin/init
 // login
 root / password
 ```
