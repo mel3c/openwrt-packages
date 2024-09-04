@@ -1,6 +1,6 @@
 ### openwrt-packages
 
-> https://github.com/kenzok8/openwrt-packages
+> https://github.com/kenzok8/openwrt-packages  
 > https://github.com/kenzok8/small-package
 
 * 服务列表
@@ -44,8 +44,11 @@ Utilities --> Shells --> bash #命令解释程序
 Utilities --> acpid  #电源管理接口（适用于x86平台）
 Utilities --> docker-compose
 Extra packages ---> ipv6helper （勾选此项即可，下面几项自动勾选）
+```
 
-// 开启wifi
+* 开启无线功能
+
+```
 Firmware--iwlwifi-firmware-ax210
 Kernel modules--Wireless Drivers--kmod-iwlwifi
 
@@ -55,6 +58,12 @@ Network--WirelessAPD--wpa-cli
 
 Base system--rpcd-mod-iwinfo
 Base system--wireless-tools
+```
+
+* 待确认
+
+```
+luci-proto-relay // 中继桥
 ```
 
 ### 本地构建
