@@ -94,3 +94,10 @@ root / password
 ```
 sudo dd if=./openwrt-x64-R23.4.1-squashfs-combined-efi.img of=/dev/disk2 bs=1m
 ```
+
+#### 遗留问题
+* wifi 重启后不能自动开启
+* openclash 开启时规则下载失败的问题
+* wifi 开启中继后不能获取上游 IP 地址的问题
+
+
