@@ -68,9 +68,11 @@ luci-proto-relay // 中继桥
 
 ### 本地构建
 ```
+sed -i "/luci/i\src-git mel3c https://github.com/mel3c/openwrt-packages" feeds.conf.default
+
 ./scripts/feeds clean
 ./scripts/feeds update -a
-./scripts/feeds install -a -p mel3c
+./scripts/feeds install -a
 
 rm -rf ./tmp && rm -rf .config
 make menuconfig
