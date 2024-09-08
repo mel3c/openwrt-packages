@@ -70,7 +70,7 @@ luci-proto-relay // 中继桥
 ```
 ./scripts/feeds clean
 ./scripts/feeds update -a
-./scripts/feeds install -a
+./scripts/feeds install -a -p mel3c
 
 rm -rf ./tmp && rm -rf .config
 make menuconfig
