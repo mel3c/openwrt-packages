@@ -95,6 +95,35 @@ root / password
 sudo dd if=./openwrt-x64-R23.4.1-squashfs-combined-efi.img of=/dev/disk2 bs=1m
 ```
 
+### ttyd 设置 SSL 证书
+```
+vi /etc/config/ttyd
+
+config ttyd
+    option interface '@lan'
+    option command '/bin/login'
+    option port '17681'  // 指定端口
+    option ssl '1'
+    option ssl_cert '/mnt/sda3/ssl/ttyd/server.crt'
+    option ssl_key '/mnt/sda3/ssl/ttyd/server.key'
+
+/etc/init.d/ttyd restart  // 重启 ttyd 服务
+```
+
+### netdata 监控组件设置 SSL 证书
+```
+vi /etc/netdata/netdata.conf
+
+[web]
+    ssl key = /mnt/sda3/ssl/ttyd/server.key
+    ssl certificate = /mnt/sda3/ssl/ttyd/server.crt
+    tls version = 1.3
+    tls ciphers = TLS13-AES-128-GCM-SHA256:TLS13-AES-256-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-128-CCM-8-SHA256:TLS13-AES-128-CCM-SHA256:EECDH+CHACHA20:EECDH
+    default port = 29999  // 指定端口
+
+service netdata restart  // 重启服务
+```
+
 #### 遗留问题
 * wifi 重启后不能自动开启
 * openclash 开启时规则下载失败的问题
