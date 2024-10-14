@@ -82,7 +82,7 @@ make menuconfig
 
 #### 制作 docker 镜像
 ```
- docker import openwrt-x86-64-generic-rootfs.tar.gz gaozhenhai/dros:v2
+docker import openwrt-x86-64-generic-rootfs.tar.gz gaozhenhai/dros:v2
 ```
 
 #### 基于 docker 运行
@@ -131,4 +131,6 @@ service netdata restart  // 重启服务
 * openclash 开启时规则下载失败的问题
 * wifi 开启中继后不能获取上游 IP 地址的问题
 
+// tailscale package
+https://github.com/asvow/luci-app-tailscale
 
