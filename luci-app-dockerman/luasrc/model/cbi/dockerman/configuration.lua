@@ -63,6 +63,12 @@ if nixio.fs.access("/usr/bin/dockerd") and not m.uci:get_bool("dockerd", "docker
 	o:value("tcp://0.0.0.0:2375", "tcp://0.0.0.0:2375")
 	o.rmempty = true
 	o:depends("remote_endpoint", 0)
+
+	o = s:option(Value, "http_proxy",
+		translate("Http proxy"),
+		translate('Set up the network proxy for the docker container'))
+	o.placeholder = ""
+	o:depends("remote_endpoint", 0)
 end
 
 s = m:section(NamedSection, "dockerman", "section", translate("DockerMan settings"))

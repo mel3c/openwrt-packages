@@ -849,6 +849,14 @@ msgstr ""
 "指定Docker服务端（Docker daemon）将在何处侦听客户端连接（默认： unix:///var/"
 "run/docker.sock）"
 
+#: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua:68
+msgid "Http proxy"
+msgstr "网络代理"
+
+#: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/configuration.lua:69
+msgid "Set up the network proxy for the docker container"
+msgstr "为Docker容器设置网络代理"
+
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/container.lua:211
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/containers.lua:234
 #: applications/luci-app-dockerman/luasrc/model/cbi/dockerman/overview.lua:65
