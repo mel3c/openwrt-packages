@@ -6,8 +6,8 @@
 * 服务列表
 ```
 luci-app-accesscontrol          # 访问时间控制
-luci-app-adbyby-plus            # 广告屏蔽大师Plus +
-luci-app-ahcp                   # Ad-Hoc配置协议(AHCP) ipv6 and 双栈 自动配置协议
+luci-app-adbyby-plus            # 广告屏蔽大师Plus +  -
+luci-app-ahcp                   # Ad-Hoc配置协议(AHCP) ipv6 and 双栈 自动配置协议  -
 luci-app-arpbind                # IP/MAC 绑定
 luci-app-autoreboot             # 计划重启
 luci-app-diskman                # 磁盘管理工具
@@ -19,7 +19,7 @@ luci-app-netdata                # Netdata实时监控（图表）,选中openclas
 luci-app-nlbwmon                # 网络带宽监视器
 luci-app-oaf                    # 应用过滤神器
 luci-app-omcproxy               # 组播代理，用于iptv
-luci-app-openclash              # 你懂的那只猫
+luci-app-openclash              # 你懂的那只猫  -
 luci-app-qos                    # 流量服务质量(QoS)流控
 luci-app-ramfree                # 释放内存
 luci-app-samba4                 # 网络共享（samba）
@@ -29,10 +29,12 @@ luci-app-turboacc               # LuCI support for Flow Offload / Shortcut-FE
 luci-app-udpxy                  # udpxy 做组播服务器
 luci-app-upnp                   # 通用即插即用 UPnP(端口自动转发)
 luci-app-vsftpd                 # FTP 服务器
-luci-app-watchcat               # 断网检测功能与定时重启
+luci-app-watchcat               # 断网检测功能与定时重启  -
 luci-app-webadmin               # Web管理页面设置
 luci-app-wrtbwmon               # 实时流量监测
 ```
+
+remove LED配置、Dnsmasq、openclash、watchcat、adbyby-plus
 
 * 工具类
 
@@ -60,24 +62,24 @@ Base system--rpcd-mod-iwinfo
 Base system--wireless-tools
 ```
 
-* 待确认
-
-```
-luci-proto-relay // 中继桥
-```
-
 ### 本地构建
 ```
-sed -i "/luci/i\src-git mel3c https://github.com/mel3c/openwrt-packages" feeds.conf.default
+$ docker run --rm -ti gaozhenhai/lede-base:v1 bash
+$ su - openwrt
+$ cd /home/openwrt/lede/
 
-./scripts/feeds clean
-./scripts/feeds update -a
-./scripts/feeds install -a
+$ sed -i "/luci/i\src-git mel3c https://github.com/mel3c/openwrt-packages" feeds.conf.default
+$ sed -i '1s/coolsnowwolf\/packages/mel3c\/packages/' feeds.conf.default
 
-rm -rf ./tmp && rm -rf .config
-make menuconfig
+$ ./scripts/feeds clean
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
 
-./scripts/diffconfig.sh > diff.config // 差异化配置生成
+$ rm -rf ./tmp && rm -rf .config
+$ cp custom-config ./.config   // 加载已有配置
+$ make menuconfig
+
+$ ./scripts/diffconfig.sh > diff.config // 差异化配置生成
 ```
 
 #### 制作 docker 镜像
