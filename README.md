@@ -1,13 +1,11 @@
 ### openwrt-packages
 
-> https://github.com/kenzok8/openwrt-packages  
+> https://github.com/kenzok8/openwrt-packages
 > https://github.com/kenzok8/small-package
 
 * 服务列表
 ```
 luci-app-accesscontrol          # 访问时间控制
-luci-app-adbyby-plus            # 广告屏蔽大师Plus +  -
-luci-app-ahcp                   # Ad-Hoc配置协议(AHCP) ipv6 and 双栈 自动配置协议  -
 luci-app-arpbind                # IP/MAC 绑定
 luci-app-autoreboot             # 计划重启
 luci-app-diskman                # 磁盘管理工具
@@ -19,7 +17,6 @@ luci-app-netdata                # Netdata实时监控（图表）,选中openclas
 luci-app-nlbwmon                # 网络带宽监视器
 luci-app-oaf                    # 应用过滤神器
 luci-app-omcproxy               # 组播代理，用于iptv
-luci-app-openclash              # 你懂的那只猫  -
 luci-app-qos                    # 流量服务质量(QoS)流控
 luci-app-ramfree                # 释放内存
 luci-app-samba4                 # 网络共享（samba）
@@ -29,22 +26,18 @@ luci-app-turboacc               # LuCI support for Flow Offload / Shortcut-FE
 luci-app-udpxy                  # udpxy 做组播服务器
 luci-app-upnp                   # 通用即插即用 UPnP(端口自动转发)
 luci-app-vsftpd                 # FTP 服务器
-luci-app-watchcat               # 断网检测功能与定时重启  -
 luci-app-webadmin               # Web管理页面设置
 luci-app-wrtbwmon               # 实时流量监测
 ```
 
-remove LED配置、Dnsmasq、openclash、watchcat、adbyby-plus
-
 * 工具类
 
 ```
-Utilities --> disc --> gdisk #GBT分区工具
+Utilities --> disc --> cfdisk #GBT分区工具
 Utilities --> disc --> lsblk #列出磁盘设备及分区查看工具
 Utilities --> Editors --> vim # vim 编辑器
 Utilities --> Shells --> bash #命令解释程序
 Utilities --> acpid  #电源管理接口（适用于x86平台）
-Utilities --> docker-compose
 Extra packages ---> ipv6helper （勾选此项即可，下面几项自动勾选）
 ```
 
@@ -69,7 +62,8 @@ $ su - openwrt
 $ cd /home/openwrt/lede/
 
 $ sed -i "/luci/i\src-git mel3c https://github.com/mel3c/openwrt-packages" feeds.conf.default
-$ sed -i '1s/coolsnowwolf\/packages/mel3c\/packages/' feeds.conf.default
+$ sed -i '1s/coolsnowwolf\/packages/mel3c\/packages;20230906/' feeds.conf.default
+$ sed -i 's/coolsnowwolf\/luci/mel3c\/luci;20240630/g' feeds.conf.default
 
 $ ./scripts/feeds clean
 $ ./scripts/feeds update -a
@@ -129,10 +123,5 @@ service netdata restart  // 重启服务
 ```
 
 #### 遗留问题
-* wifi 重启后不能自动开启
-* openclash 开启时规则下载失败的问题
 * wifi 开启中继后不能获取上游 IP 地址的问题
-
-// tailscale package
-https://github.com/asvow/luci-app-tailscale
 
