@@ -6,7 +6,7 @@
 * 服务列表
 ```
 luci-app-accesscontrol          # 访问时间控制
-luci-app-arpbind                # IP/MAC 绑定
+luci-app-arpbind                # IP/MAC 绑定 -
 luci-app-autoreboot             # 计划重启
 luci-app-diskman                # 磁盘管理工具
 luci-app-dockerman              # Docker Manager
@@ -16,7 +16,7 @@ luci-app-firewall               # 防火墙和端口转发,必备
 luci-app-netdata                # Netdata实时监控（图表）,选中openclash才会显示出来
 luci-app-nlbwmon                # 网络带宽监视器
 luci-app-oaf                    # 应用过滤神器
-luci-app-omcproxy               # 组播代理，用于iptv
+luci-app-omcproxy               # 组播代理，用于iptv -
 luci-app-qos                    # 流量服务质量(QoS)流控
 luci-app-ramfree                # 释放内存
 luci-app-samba4                 # 网络共享（samba）
@@ -33,7 +33,7 @@ luci-app-wrtbwmon               # 实时流量监测
 * 工具类
 
 ```
-Utilities --> disc --> cfdisk #GBT分区工具
+Utilities --> disc --> cfdisk #GBT分区工具(默认)
 Utilities --> disc --> lsblk #列出磁盘设备及分区查看工具
 Utilities --> Editors --> vim # vim 编辑器
 Utilities --> Shells --> bash #命令解释程序
@@ -51,6 +51,7 @@ Network--WirelessAPD--hostapd
 Network--WirelessAPD--wpa-supplicant
 Network--WirelessAPD--wpa-cli
 
+Base system--dnsmasq-full remove --
 Base system--rpcd-mod-iwinfo
 Base system--wireless-tools
 ```
