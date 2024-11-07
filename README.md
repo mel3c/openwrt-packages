@@ -6,23 +6,22 @@
 * 服务列表
 ```
 luci-app-accesscontrol          # 访问时间控制
-luci-app-arpbind                # IP/MAC 绑定 -
 luci-app-autoreboot             # 计划重启
 luci-app-diskman                # 磁盘管理工具
 luci-app-dockerman              # Docker Manager
 luci-app-eqos                   # 根据IP控制网速
 luci-app-filetransfer           # 上传文件功能
 luci-app-firewall               # 防火墙和端口转发,必备
-luci-app-netdata                # Netdata实时监控（图表）,选中openclash才会显示出来
+luci-app-netdata                # Netdata实时监控(图表)
 luci-app-nlbwmon                # 网络带宽监视器
 luci-app-oaf                    # 应用过滤神器
 luci-app-omcproxy               # 组播代理，用于iptv -
 luci-app-qos                    # 流量服务质量(QoS)流控
 luci-app-ramfree                # 释放内存
-luci-app-samba4                 # 网络共享（samba）
+luci-app-samba4                 # 网络共享(samba)
 luci-app-socat                  # 端口转发
 luci-app-ttyd                   # 网页终端命令行
-luci-app-turboacc               # LuCI support for Flow Offload / Shortcut-FE
+luci-app-turboacc               # LuCI support for Flow Offload / Shortcut-FE  or luci-app-flowoffload?
 luci-app-udpxy                  # udpxy 做组播服务器
 luci-app-upnp                   # 通用即插即用 UPnP(端口自动转发)
 luci-app-vsftpd                 # FTP 服务器
@@ -54,6 +53,12 @@ Network--WirelessAPD--wpa-cli
 Base system--dnsmasq-full remove --
 Base system--rpcd-mod-iwinfo
 Base system--wireless-tools
+```
+
+* Libraries
+
+```
+Libraries -> SSL -> libopenssl 移除 "Acceleration support through /dev/crypto" // 修复 uhttpd 无法使用 SSL 的问题
 ```
 
 ### 本地构建
