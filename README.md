@@ -16,14 +16,12 @@ luci-app-netdata                # Netdata实时监控(图表)
 luci-app-nlbwmon                # 网络带宽监视器
 luci-app-oaf                    # 应用过滤神器
 luci-app-omcproxy               # 组播代理，用于iptv -
-luci-app-qos                    # 流量服务质量(QoS)流控
 luci-app-ramfree                # 释放内存
 luci-app-samba4                 # 网络共享(samba)
-luci-app-socat                  # 端口转发
 luci-app-ttyd                   # 网页终端命令行
 luci-app-turboacc               # LuCI support for Flow Offload / Shortcut-FE  or luci-app-flowoffload?
 luci-app-udpxy                  # udpxy 做组播服务器
-luci-app-upnp                   # 通用即插即用 UPnP(端口自动转发)
+-- luci-app-upnp                   # 通用即插即用 UPnP(端口自动转发)
 luci-app-vsftpd                 # FTP 服务器
 luci-app-webadmin               # Web管理页面设置
 luci-app-wrtbwmon               # 实时流量监测
@@ -96,6 +94,7 @@ root / password
 
 #### 制作启动U盘
 ```
+gzip -d openwrt-x86-64-generic-squashfs-combined-efi.img.gz
 sudo dd if=./openwrt-x64-R23.4.1-squashfs-combined-efi.img of=/dev/disk2 bs=1m
 ```
 
@@ -128,6 +127,44 @@ vi /etc/netdata/netdata.conf
 service netdata restart  // 重启服务
 ```
 
-#### 遗留问题
+### 遗留问题
 * wifi 开启中继后不能获取上游 IP 地址的问题
+
+#### 路由重启后无线网卡无法自动启动
+
+```
+cat /etc/init.d/wifi-check
+```
+
+```
+#!/bin/sh /etc/rc.common
+
+START=99
+PID_FILE="/var/run/wifi-check.pid"
+
+start() {
+    echo "Starting WiFi check service..."
+
+    nohup /bin/sh -c 'while true; do
+        for i in $(seq 1 10); do
+            /sbin/wifi status | grep -q "\"up\": true" && echo "WiFi is up." && break
+            /sbin/wifi up
+            sleep 3
+        done
+        sleep 60
+    done' > /dev/null 2>&1 &
+
+    echo $! > "$PID_FILE"
+}
+
+stop() {
+    echo "Stopping WiFi check service..."
+    if [ -f "$PID_FILE" ]; then
+        kill "$(cat $PID_FILE)" 2>/dev/null
+        rm -f "$PID_FILE"
+    else
+        echo "Service not running."
+    fi
+}
+```
 
